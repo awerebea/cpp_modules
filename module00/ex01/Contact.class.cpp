@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 23:36:31 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/04 15:38:59 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/04 18:12:14 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,17 @@ Contact::Contact() {}
 Contact::~Contact() {}
 
 int				Contact::initContact() {
+	_fieldName[0] = "First name: ";
+	_fieldName[1] = "Last name: ";
+	_fieldName[2] = "Nickname: ";
+	_fieldName[3] = "Login: ";
+	_fieldName[4] = "Postal address: ";
+	_fieldName[5] = "Email: ";
+	_fieldName[6] = "Phone number: ";
+	_fieldName[7] = "Birthday date: ";
+	_fieldName[8] = "Favourite meal: ";
+	_fieldName[9] = "Underwear color: ";
+	_fieldName[10] = "Darkest secret: ";
 	for (int i = 0; i <= 2; i++) {
 		std::cout << "Input " << _fieldName[i];
 		std::getline(std::cin, _fieldData[i]);

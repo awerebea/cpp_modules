@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 23:17:09 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/04 15:45:47 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/04 18:13:35 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,7 @@
 class Contact {
 private:
 	static const int	_numOfFields = 11;
-	std::string	_fieldName[_numOfFields] = {
-				"First name: ", \
-				"Last name: ", \
-				"Nickname: ", \
-				"Login: ", \
-				"Postal address: ", \
-				"Email: ", \
-				"Phone number: ", \
-				"Birthday date: ", \
-				"Favourite meal: ", \
-				"Underwear color: ", \
-				"Darkest secret: " };
+	std::string	_fieldName[_numOfFields];
 	std::string	_firstName, \
 				_lastName, \
 				_nickName, \
@@ -41,9 +30,8 @@ private:
 				_favouriteMeal, \
 				_underwearColor, \
 				_darkestSecret;
-	std::string	_fieldData[_numOfFields] = { _firstName, _lastName, _nickName, \
-				_login, _postalAddress, _email, _phoneNumber, _birthdayiDate, \
-				_favouriteMeal, _underwearColor, _darkestSecret };
+	std::string	_fieldData[_numOfFields];
+
 public:
 	Contact();
 	~Contact();
