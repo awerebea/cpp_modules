@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 13:50:40 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/06 15:48:43 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/07 08:11:02 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 int				main() {
 	int			N;
-	int			S;
-	int			correctInput = 0;
 
 	std::cout << "Input number of Zombies to create: ";
 	std::cin >> N;
