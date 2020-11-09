@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 13:52:03 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/06 15:26:05 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/09 14:43:19 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ std::string		randNameGen(int nameLen)
 
 ZombieHorde::ZombieHorde(int N) : _numOfZombies(N) {
 
-	std::srand(time(NULL));
+	std::srand(time(nullptr));
 	if (N <= 0) return ;
 	this->_zombies = static_cast<Zombie*>(operator new[] (N * sizeof(Zombie)));
 	for (int i = 0; i < N; i++) {

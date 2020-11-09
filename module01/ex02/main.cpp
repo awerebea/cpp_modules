@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 17:41:04 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/05 22:29:02 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/09 14:43:41 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ std::string		randNameGen(int nameLen)
 void			randomChamp() {
 	std::cout << "Create random Zombie on the Stack:" << std::endl;
 
-	std::srand(time(NULL));
+	std::srand(time(nullptr));
 	Zombie		stackZombie = Zombie(randNameGen(std::rand() / 3 % 4 + 5),
 															std::rand() % 4);
 	stackZombie.announce();
