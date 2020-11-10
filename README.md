@@ -9,3 +9,6 @@ Namespace, class, member functions, stdio stream, initialization lists, static, 
 
 ### Module 01
 Memory allocation, References, Pointers to members, File streams
+
+### Module
+Ad-hoc polymorphism, operators overload and canonical classes
