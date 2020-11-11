@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: awerebea <awerebea@student.21-school.      +#+  +:+       +#+         #
+#    By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/09 17:35:29 by awerebea          #+#    #+#              #
-#    Updated: 2020/11/09 23:04:36 by awerebea         ###   ########.fr        #
+#    Updated: 2020/11/11 14:48:50 by awerebea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
