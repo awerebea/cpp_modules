@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 13:50:40 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/09 13:48:23 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/10 21:13:13 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	isDecNum(std::string str)
 {
-	for (int i = 0; i < str.length(); i++) {
+	for (int i = 0; i < (int)str.length(); i++) {
 		if (!((str[i] >= '0' && str[i] <= '9') \
 			|| (!i && (str[i] == '-' || str[i] == '+'))))
 			return (0);
@@ -30,7 +30,7 @@ int	stringToNum(std::string str)
 	int				sign = 1;
 	int				i = 0;
 
-	while (i < str.length() && (str[i] == '\n' || str[i] == '\t' \
+	while (i < (int)str.length() && (str[i] == '\n' || str[i] == '\t' \
 			|| str[i] == '\v' || str[i] == '\r' \
 			|| str[i] == '\f' || str[i] == ' '))
 		i++;
@@ -38,7 +38,7 @@ int	stringToNum(std::string str)
 		sign = -1;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	while (i < str.length() && str[i] >= '0' && str[i]<= '9') {
+	while (i < (int)str.length() && str[i] >= '0' && str[i]<= '9') {
 		if ((result * 10) < result) {
 			return (sign < 0 ? 0 : -1);
 		}
