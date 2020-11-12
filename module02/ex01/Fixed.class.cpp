@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 13:07:38 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/11 19:14:00 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/12 11:06:36 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ Fixed::~Fixed() {
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& a) {
+Fixed::Fixed(const Fixed &a) {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_val = a.getRawBits();
+	*this = a;
 }
 
 Fixed::Fixed(const int inum) {
@@ -37,14 +37,14 @@ Fixed::Fixed(const float fnum) {
 	this->_val = roundf(fnum * (1 << this->_fract_bits));
 }
 
-Fixed&			Fixed::operator=(const Fixed& a) {
+Fixed			&Fixed::operator=(const Fixed &a) {
 	std::cout << "Assignation operator called" << std::endl;
-	this->_val = a.getRawBits();
+	if (this != &a)
+		this->_val = a.getRawBits();
 	return (*this);
 }
 
 int				Fixed::getRawBits(void) const {
-	// std::cout << "getRawBits member function called" << std::endl;
 	return (this->_val);
 }
 
@@ -60,7 +60,7 @@ int				Fixed::toInt(void) const {
 	return (this->_val >> this->_fract_bits);
 }
 
-std::ostream&	operator<<(std::ostream& out, const Fixed& a) {
+std::ostream	&operator<<(std::ostream& out, const Fixed &a) {
 	out << a.toFloat();
 	return (out);
 }

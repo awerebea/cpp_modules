@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 13:07:38 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/11 23:45:48 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/12 11:01:07 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Fixed::Fixed() : _val(0) {}
 Fixed::~Fixed() {}
 
 Fixed::Fixed(const Fixed &a) {
-	this->_val = a.getRawBits();
+	*this = a;
 }
 
 Fixed::Fixed(const int inum) {
@@ -31,7 +31,8 @@ Fixed::Fixed(const float fnum) {
 }
 
 Fixed			&Fixed::operator=(const Fixed &a) {
-	this->_val = a.getRawBits();
+	if (this != &a)
+		this->_val = a.getRawBits();
 	return (*this);
 }
 
@@ -51,7 +52,7 @@ int				Fixed::toInt(void) const {
 	return (this->_val >> this->_fract_bits);
 }
 
-std::ostream&	operator<<(std::ostream &out, const Fixed &a) {
+std::ostream	&operator<<(std::ostream &out, const Fixed &a) {
 	out << a.toFloat();
 	return (out);
 }
