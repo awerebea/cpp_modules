@@ -6,21 +6,11 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 18:26:19 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/14 18:49:38 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/16 15:55:11 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-
-const int	ScavTrap::challengesCount = 5;
-const std::string ScavTrap::challengesSet[ScavTrap::challengesCount] = \
-	{
-		"Make a breakfast",
-		"Find a mushroom",
-		"Take a shower",
-		"Save the Planet",
-		"Win world football championship"
-	};
 
 ScavTrap::ScavTrap()
 {
@@ -77,11 +67,6 @@ ScavTrap &			ScavTrap::operator=(const ScavTrap &a)
 		_armorDamageReduction = a._armorDamageReduction;
 	}
 	return (*this);
-}
-
-std::string			ScavTrap::getName(void) const
-{
-	return (this->_name);
 }
 
 void		ScavTrap::rangedAttack(std::string const & target)
@@ -155,9 +140,19 @@ void		ScavTrap::beRepaired(unsigned int amount)
 
 void		ScavTrap::challengeNewcomer(void)
 {
+	static const int			challengesCount = 5;
+	static const std::string	challengesSet[challengesCount] = \
+	{
+		"Make a breakfast",
+		"Find a mushroom",
+		"Take a shower",
+		"Save the Planet",
+		"Win world football championship"
+	};
+
 	std::cout << "SC4V-TP " << COLOR_GREEN_BOLD << _name << COLOR_RESET
 		<< " takes "
 		<< COLOR_YELLOW_BOLD
-		<< ScavTrap::challengesSet[rand() % ScavTrap::challengesCount]
+		<< challengesSet[rand() % challengesCount]
 		<< COLOR_RESET << " challenge!\n";
 }

@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 16:19:18 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/14 17:00:25 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/16 15:58:57 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,6 @@ class			FragTrap
 	int			_rangedAttackDamage;
 	int			_armorDamageReduction;
 
-	static const int	vhAttackTypeCount;
-	static const std::string vhAttackTypes[];
-
 public:
 	FragTrap();
 	FragTrap(std::string name);
@@ -58,8 +55,6 @@ public:
 
 	FragTrap &	operator = (const FragTrap &a);
 
-	int			getMember(void) const;
-	std::string	getName(void) const;
 	void		rangedAttack(std::string const & target);
 	void		meleeAttack(std::string const & target);
 	void		takeDamage(unsigned int amount);

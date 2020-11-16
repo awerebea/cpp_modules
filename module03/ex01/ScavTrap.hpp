@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 16:19:18 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/14 18:36:10 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/16 15:53:02 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,6 @@ class			ScavTrap
 	int			_rangedAttackDamage;
 	int			_armorDamageReduction;
 
-	static const int			challengesCount;
-	static const std::string	challengesSet[];
-
 public:
 	ScavTrap();
 	ScavTrap(std::string name);
@@ -58,8 +55,6 @@ public:
 
 	ScavTrap &	operator = (const ScavTrap &a);
 
-	int			getMember(void) const;
-	std::string	getName(void) const;
 	void		rangedAttack(std::string const & target);
 	void		meleeAttack(std::string const & target);
 	void		takeDamage(unsigned int amount);
