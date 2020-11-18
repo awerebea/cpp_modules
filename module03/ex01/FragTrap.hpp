@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 16:19:18 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/16 15:51:13 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/18 15:51:49 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@
 
 # ifndef COLOR_BLUE_BOLD
 #  define COLOR_BLUE_BOLD "\033[1;34m"
+# endif
+
+# ifndef COLOR_CYAN_BOLD
+#  define COLOR_CYAN_BOLD "\033[1;36m"
 # endif
 
 # ifndef COLOR_RESET

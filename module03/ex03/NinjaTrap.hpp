@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:05:21 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/18 11:45:52 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/18 16:12:30 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ public:
 	~NinjaTrap();
 
 	NinjaTrap &	operator = (const NinjaTrap &a);
+
+	void		rangedAttack(std::string const & target);
+	void		meleeAttack(std::string const & target);
+	void		takeDamage(unsigned int amount);
+	void		beRepaired(unsigned int amount);
 
 	void		ninjaShoebox(FragTrap &a);
 	void		ninjaShoebox(ScavTrap &a);

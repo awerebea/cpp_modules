@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:05:36 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/17 19:18:50 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/18 15:51:48 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,34 @@ NinjaTrap &			NinjaTrap::operator=(const NinjaTrap &a)
 	return (*this);
 }
 
+void		NinjaTrap::rangedAttack(std::string const & target)
+{
+	std::cout << COLOR_CYAN_BOLD << "NINJ4-TP " << COLOR_RESET;
+	ClapTrap::rangedAttack(target);
+}
+
+void		NinjaTrap::meleeAttack(std::string const & target)
+{
+	std::cout << COLOR_CYAN_BOLD << "NINJ4-TP " << COLOR_RESET;
+	ClapTrap::meleeAttack(target);
+}
+
+void		NinjaTrap::takeDamage(unsigned int amount)
+{
+	std::cout << COLOR_CYAN_BOLD << "NINJ4-TP " << COLOR_RESET;
+	ClapTrap::takeDamage(amount);
+}
+
+void		NinjaTrap::beRepaired(unsigned int amount)
+{
+	std::cout << COLOR_CYAN_BOLD << "NINJ4-TP " << COLOR_RESET;
+	ClapTrap::beRepaired(amount);
+}
+
 void				NinjaTrap::ninjaShoebox(FragTrap &a)
 {
-	std::cout << "Ninja " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+	std::cout << COLOR_CYAN_BOLD << "NINJ4-TP " << COLOR_RESET
+		<< COLOR_GREEN_BOLD << _name << COLOR_RESET
 		<< " attacks FR4G-TP at melee with "
 		<< COLOR_RED_BOLD << _meleeAttackDamage << COLOR_RESET
 		<< " amount of damage\n";
@@ -80,7 +105,8 @@ void				NinjaTrap::ninjaShoebox(FragTrap &a)
 
 void				NinjaTrap::ninjaShoebox(ScavTrap &a)
 {
-	std::cout << "Ninja " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+	std::cout << COLOR_CYAN_BOLD << "NINJ4-TP " << COLOR_RESET
+		<< COLOR_GREEN_BOLD << _name << COLOR_RESET
 		<< " attacks SC4V-TP at range with "
 		<< COLOR_RED_BOLD << _rangedAttackDamage << COLOR_RESET
 		<< " amount of damage\n";
@@ -89,7 +115,8 @@ void				NinjaTrap::ninjaShoebox(ScavTrap &a)
 
 void				NinjaTrap::ninjaShoebox(ClapTrap &a)
 {
-	std::cout << "Ninja " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+	std::cout << COLOR_CYAN_BOLD << "NINJ4-TP " << COLOR_RESET
+		<< COLOR_GREEN_BOLD << _name << COLOR_RESET
 		<< " repairs ClapTrap with "
 		<< COLOR_BLUE_BOLD << _energyPoints / 2 << COLOR_RESET << " HP\n";
 	a.beRepaired(_energyPoints / 2);
@@ -97,7 +124,8 @@ void				NinjaTrap::ninjaShoebox(ClapTrap &a)
 
 void				NinjaTrap::ninjaShoebox(NinjaTrap &a)
 {
-	std::cout << "Ninja " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+	std::cout << COLOR_CYAN_BOLD << "NINJ4-TP " << COLOR_RESET
+		<< COLOR_GREEN_BOLD << _name << COLOR_RESET
 		<< " diagnose NINJ4-TP " << COLOR_YELLOW_BOLD << a._name << COLOR_RESET
 		<< "\n";
 }

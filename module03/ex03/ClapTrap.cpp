@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 16:22:08 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/17 19:16:06 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/18 12:27:24 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ ClapTrap &			ClapTrap::operator=(const ClapTrap &a)
 
 void		ClapTrap::rangedAttack(std::string const & target)
 {
-	std::cout << "ClapTrap " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+	std::cout << COLOR_GREEN_BOLD << _name << COLOR_RESET
 				<< " attacks " << COLOR_YELLOW_BOLD << target << COLOR_RESET
 				<< " at range, causing "
 				<< COLOR_RED_BOLD << _rangedAttackDamage << COLOR_RESET
@@ -80,7 +80,7 @@ void		ClapTrap::rangedAttack(std::string const & target)
 
 void		ClapTrap::meleeAttack(std::string const & target)
 {
-	std::cout << "ClapTrap " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+	std::cout << COLOR_GREEN_BOLD << _name << COLOR_RESET
 				<< " attacks " << COLOR_YELLOW_BOLD << target << COLOR_RESET
 				<< " at melee, causing "
 				<< COLOR_RED_BOLD << _meleeAttackDamage << COLOR_RESET
@@ -94,7 +94,7 @@ void		ClapTrap::takeDamage(unsigned int amount)
 		int damage = amount - _armorDamageReduction;
 		if ((_hitPoints - damage) <= 0)
 		{
-			std::cout << "ClapTrap " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+			std::cout << COLOR_GREEN_BOLD << _name << COLOR_RESET
 				<< " takes " << COLOR_RED_BOLD << _hitPoints << COLOR_RESET
 				<< " points of damage, and is killed!\n";
 			_hitPoints = 0;
@@ -102,7 +102,7 @@ void		ClapTrap::takeDamage(unsigned int amount)
 		else
 		{
 			_hitPoints -= damage;
-			std::cout << "ClapTrap " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+			std::cout << COLOR_GREEN_BOLD << _name << COLOR_RESET
 				<< " takes " << COLOR_RED_BOLD << damage << COLOR_RESET
 				<< " points of damage, current HP: "
 				<< COLOR_BLUE_BOLD << _hitPoints << COLOR_RESET << "\n";
@@ -110,7 +110,7 @@ void		ClapTrap::takeDamage(unsigned int amount)
 	}
 	else
 	{
-		std::cout << "ClapTrap " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+		std::cout << COLOR_GREEN_BOLD << _name << COLOR_RESET
 			<< " not damaged, current HP: "
 			<< COLOR_BLUE_BOLD << _hitPoints << COLOR_RESET << "\n";;
 	}
@@ -120,7 +120,7 @@ void		ClapTrap::beRepaired(unsigned int amount)
 {
 	if (amount > (unsigned int)(_maxHitPoints - _hitPoints))
 	{
-		std::cout << "ClapTrap " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+		std::cout << COLOR_GREEN_BOLD << _name << COLOR_RESET
 			<< " repaired "
 			<< COLOR_BLUE_BOLD << _maxHitPoints - _hitPoints << COLOR_RESET
 			<< " HP, current HP: "
@@ -130,7 +130,7 @@ void		ClapTrap::beRepaired(unsigned int amount)
 	else
 	{
 		_hitPoints += amount;
-		std::cout << "ClapTrap " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+		std::cout << COLOR_GREEN_BOLD << _name << COLOR_RESET
 			<< " repaired "
 			<< COLOR_BLUE_BOLD << amount << COLOR_RESET
 			<< " HP, current HP: "

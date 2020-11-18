@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 16:22:08 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/17 13:20:23 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/18 15:51:48 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,30 @@ FragTrap &			FragTrap::operator=(const FragTrap &a)
 	return (*this);
 }
 
+void		FragTrap::rangedAttack(std::string const & target)
+{
+	std::cout << COLOR_CYAN_BOLD << "FR4G-TP " << COLOR_RESET;
+	ClapTrap::rangedAttack(target);
+}
+
+void		FragTrap::meleeAttack(std::string const & target)
+{
+	std::cout << COLOR_CYAN_BOLD << "FR4G-TP " << COLOR_RESET;
+	ClapTrap::meleeAttack(target);
+}
+
+void		FragTrap::takeDamage(unsigned int amount)
+{
+	std::cout << COLOR_CYAN_BOLD << "FR4G-TP " << COLOR_RESET;
+	ClapTrap::takeDamage(amount);
+}
+
+void		FragTrap::beRepaired(unsigned int amount)
+{
+	std::cout << COLOR_CYAN_BOLD << "FR4G-TP " << COLOR_RESET;
+	ClapTrap::beRepaired(amount);
+}
+
 void		FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
 	static const int			vhAttackTypeCount = 5;
@@ -83,7 +107,8 @@ void		FragTrap::vaulthunter_dot_exe(std::string const & target)
 
 	if ((_energyPoints -= 25) >= 0)
 	{
-		std::cout << "FR4G-TP " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+		std::cout << COLOR_CYAN_BOLD << "FR4G-TP " << COLOR_RESET
+			<< COLOR_GREEN_BOLD << _name << COLOR_RESET
 			<< " attacks " << COLOR_YELLOW_BOLD << target << COLOR_RESET
 			<< " with "
 			<< COLOR_RED_BOLD
@@ -93,7 +118,8 @@ void		FragTrap::vaulthunter_dot_exe(std::string const & target)
 	else
 	{
 		_energyPoints = 0;
-		std::cout << "FR4G-TP " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+		std::cout << COLOR_CYAN_BOLD << "FR4G-TP " << COLOR_RESET
+			<< COLOR_GREEN_BOLD << _name << COLOR_RESET
 			<< " has not enough energy for attack "
 			<< COLOR_YELLOW_BOLD << target << COLOR_RESET << "!\n";
 	}

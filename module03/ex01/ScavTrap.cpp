@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 18:26:19 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/16 15:55:11 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/18 15:58:42 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,22 @@ ScavTrap &			ScavTrap::operator=(const ScavTrap &a)
 
 void		ScavTrap::rangedAttack(std::string const & target)
 {
-	std::cout << "SC4V-TP " << COLOR_GREEN_BOLD << _name << COLOR_RESET
-				<< " attacks " << COLOR_YELLOW_BOLD << target << COLOR_RESET
-				<< " at range, causing "
-				<< COLOR_RED_BOLD << _rangedAttackDamage << COLOR_RESET
-				<< " points of damage!\n";
+	std::cout << COLOR_CYAN_BOLD << "SC4V-TP " << COLOR_RESET
+		<< COLOR_GREEN_BOLD << _name << COLOR_RESET
+		<< " attacks " << COLOR_YELLOW_BOLD << target << COLOR_RESET
+		<< " at range, causing "
+		<< COLOR_RED_BOLD << _rangedAttackDamage << COLOR_RESET
+		<< " points of damage!\n";
 }
 
 void		ScavTrap::meleeAttack(std::string const & target)
 {
-	std::cout << "SC4V-TP " << COLOR_GREEN_BOLD << _name << COLOR_RESET
-				<< " attacks " << COLOR_YELLOW_BOLD << target << COLOR_RESET
-				<< " at melee, causing "
-				<< COLOR_RED_BOLD << _meleeAttackDamage << COLOR_RESET
-				<< " points of damage!\n";
+	std::cout << COLOR_CYAN_BOLD << "SC4V-TP " << COLOR_RESET
+		<< COLOR_GREEN_BOLD << _name << COLOR_RESET
+		<< " attacks " << COLOR_YELLOW_BOLD << target << COLOR_RESET
+		<< " at melee, causing "
+		<< COLOR_RED_BOLD << _meleeAttackDamage << COLOR_RESET
+		<< " points of damage!\n";
 }
 
 void		ScavTrap::takeDamage(unsigned int amount)
@@ -94,7 +96,8 @@ void		ScavTrap::takeDamage(unsigned int amount)
 		int damage = amount - _armorDamageReduction;
 		if ((_hitPoints - damage) <= 0)
 		{
-			std::cout << "SC4V-TP " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+			std::cout << COLOR_CYAN_BOLD << "SC4V-TP " << COLOR_RESET
+				<< COLOR_GREEN_BOLD << _name << COLOR_RESET
 				<< " takes " << COLOR_RED_BOLD << _hitPoints << COLOR_RESET
 				<< " points of damage, and is killed!\n";
 			_hitPoints = 0;
@@ -102,7 +105,8 @@ void		ScavTrap::takeDamage(unsigned int amount)
 		else
 		{
 			_hitPoints -= damage;
-			std::cout << "SC4V-TP " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+			std::cout << COLOR_CYAN_BOLD << "SC4V-TP " << COLOR_RESET
+				<< COLOR_GREEN_BOLD << _name << COLOR_RESET
 				<< " takes " << COLOR_RED_BOLD << damage << COLOR_RESET
 				<< " points of damage, current HP: "
 				<< COLOR_BLUE_BOLD << _hitPoints << COLOR_RESET << "\n";
@@ -110,7 +114,8 @@ void		ScavTrap::takeDamage(unsigned int amount)
 	}
 	else
 	{
-		std::cout << "SC4V-TP " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+		std::cout << COLOR_CYAN_BOLD << "SC4V-TP " << COLOR_RESET
+			<< COLOR_GREEN_BOLD << _name << COLOR_RESET
 			<< " not damaged, current HP: "
 			<< COLOR_BLUE_BOLD << _hitPoints << COLOR_RESET << "\n";;
 	}
@@ -120,7 +125,8 @@ void		ScavTrap::beRepaired(unsigned int amount)
 {
 	if (amount > (unsigned int)(_maxHitPoints - _hitPoints))
 	{
-		std::cout << "SC4V-TP " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+		std::cout << COLOR_CYAN_BOLD << "SC4V-TP " << COLOR_RESET
+			<< COLOR_GREEN_BOLD << _name << COLOR_RESET
 			<< " repaired "
 			<< COLOR_BLUE_BOLD << _maxHitPoints - _hitPoints << COLOR_RESET
 			<< " HP, current HP: "
@@ -130,7 +136,8 @@ void		ScavTrap::beRepaired(unsigned int amount)
 	else
 	{
 		_hitPoints += amount;
-		std::cout << "SC4V-TP " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+		std::cout << COLOR_CYAN_BOLD << "SC4V-TP " << COLOR_RESET
+			<< COLOR_GREEN_BOLD << _name << COLOR_RESET
 			<< " repaired "
 			<< COLOR_BLUE_BOLD << amount << COLOR_RESET
 			<< " HP, current HP: "
@@ -150,7 +157,8 @@ void		ScavTrap::challengeNewcomer(void)
 		"Win world football championship"
 	};
 
-	std::cout << "SC4V-TP " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+	std::cout << COLOR_CYAN_BOLD << "SC4V-TP " << COLOR_RESET
+		<< COLOR_GREEN_BOLD << _name << COLOR_RESET
 		<< " takes "
 		<< COLOR_YELLOW_BOLD
 		<< challengesSet[rand() % challengesCount]

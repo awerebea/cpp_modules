@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 18:26:19 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/17 13:22:32 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/18 15:51:48 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,30 @@ ScavTrap &			ScavTrap::operator=(const ScavTrap &a)
 	return (*this);
 }
 
+void		ScavTrap::rangedAttack(std::string const & target)
+{
+	std::cout << COLOR_CYAN_BOLD << "SC4V-TP " << COLOR_RESET;
+	ClapTrap::rangedAttack(target);
+}
+
+void		ScavTrap::meleeAttack(std::string const & target)
+{
+	std::cout << COLOR_CYAN_BOLD << "SC4V-TP " << COLOR_RESET;
+	ClapTrap::meleeAttack(target);
+}
+
+void		ScavTrap::takeDamage(unsigned int amount)
+{
+	std::cout << COLOR_CYAN_BOLD << "SC4V-TP " << COLOR_RESET;
+	ClapTrap::takeDamage(amount);
+}
+
+void		ScavTrap::beRepaired(unsigned int amount)
+{
+	std::cout << COLOR_CYAN_BOLD << "SC4V-TP " << COLOR_RESET;
+	ClapTrap::beRepaired(amount);
+}
+
 void		ScavTrap::challengeNewcomer(void)
 {
 	static const int			challengesCount = 5;
@@ -81,7 +105,8 @@ void		ScavTrap::challengeNewcomer(void)
 		"Win world football championship"
 	};
 
-	std::cout << "SC4V-TP " << COLOR_GREEN_BOLD << _name << COLOR_RESET
+	std::cout << COLOR_CYAN_BOLD << "SC4V-TP " << COLOR_RESET
+		<< COLOR_GREEN_BOLD << _name << COLOR_RESET
 		<< " takes "
 		<< COLOR_YELLOW_BOLD << challengesSet[rand() % challengesCount]
 		<< COLOR_RESET << " challenge!\n";
