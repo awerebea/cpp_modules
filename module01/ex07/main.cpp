@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 17:38:22 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/11 14:48:49 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/19 21:59:41 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		printError()
 
 }
 
+std::
 int		printError(std::string filename)
 {
 	std::cout << std::strerror(errno) << " " << filename << std::endl;
