@@ -6,13 +6,13 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 20:54:59 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/24 01:18:32 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/26 15:22:48 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Squad.hpp"
 
-Squad::Squad() : _unitsCount(0), _units (nullptr) {}
+Squad::Squad() : _unitsCount(0), _units(nullptr) {}
 
 Squad::~Squad()
 {
@@ -42,7 +42,7 @@ void						Squad::deleteUnits()
 {
 	t_unitsList		*tmp = nullptr;
 
-	for (int i = 0; i == _unitsCount; ++i)
+	for (int i = 0; i < _unitsCount; ++i)
 	{
 		tmp = _units->next;
 		delete (_units->unit);
@@ -81,6 +81,7 @@ int							Squad::push(ISpaceMarine *a)
 	{
 		_units = new t_unitsList;
 		_units->unit = a;
+		_units->next = nullptr;
 	}
 	else
 	{
