@@ -1,0 +1,109 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/20 18:43:25 by awerebea          #+#    #+#             */
+/*   Updated: 2020/11/26 14:01:16 by awerebea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Character.hpp"
+#include "RadScorpion.hpp"
+#include "PlasmaRifle.hpp"
+#include "PowerFist.hpp"
+#include "SuperMutant.hpp"
+
+// int main()
+// {
+//     Character* me = new Character("me");
+
+//     std::cout << *me;
+
+//     Enemy* b = new RadScorpion();
+
+//     AWeapon* pr = new PlasmaRifle();
+//     AWeapon* pf = new PowerFist();
+
+//     me->equip(pr);
+//     std::cout << *me;
+//     me->equip(pf);
+
+//     me->attack(b);
+//     std::cout << *me;
+//     me->equip(pr);
+//     std::cout << *me;
+//     me->attack(b);
+//     std::cout << *me;
+//     me->attack(b);
+//     std::cout << *me;
+
+//     return 0;
+// }
+
+int main(void)
+{
+	AWeapon* pr = new PlasmaRifle();
+	AWeapon* pf = new PowerFist();
+
+
+	Character me("me");
+
+	Enemy* foo = new SuperMutant();
+
+	me.equip(pr);
+	std::cout << me;
+	me.equip(pf);
+	std::cout << me;
+	me.equip(NULL);
+	std::cout << me;
+
+	me.attack(foo);
+	me.equip(pf);
+	std::cout << me;
+	me.attack(foo);
+	std::cout << me;
+	me.attack(foo);
+	std::cout << me;
+	me.attack(foo);
+	std::cout << me;
+	me.attack(foo);
+	std::cout << me;
+
+	Enemy* enm = new Enemy(51, "Predator");
+
+	me.attack(enm);
+	std::cout << me;
+	me.attack(enm);
+	std::cout << me;
+
+	Character anybody(me);
+	std::cout << anybody;
+	anybody = me;
+	std::cout << anybody;
+
+	SuperMutant mut;
+	SuperMutant mut2(mut);
+	std::cout << mut.getType() << " and " << mut2.getType() << std::endl;
+	mut2 = mut;
+	std::cout << mut.getType() << " and " << mut2.getType() << std::endl;
+
+	RadScorpion scorp;
+	RadScorpion scorp2(scorp);
+	std::cout << scorp.getType() << " and " << scorp2.getType() << std::endl;
+	scorp2 = scorp;
+	std::cout << scorp.getType() << " and " << scorp2.getType() << std::endl;
+
+	PlasmaRifle ppr(*static_cast<PlasmaRifle*>(pr));
+	ppr = *static_cast<PlasmaRifle*>(pr);
+	PowerFist ppf(*static_cast<PowerFist*>(pf));
+	ppf = *static_cast<PowerFist*>(pf);
+
+	delete enm;
+	delete pr;
+	delete pf;
+
+	return (0);
+}

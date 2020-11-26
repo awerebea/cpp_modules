@@ -1,0 +1,57 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/19 16:46:27 by awerebea          #+#    #+#             */
+/*   Updated: 2020/11/26 13:40:54 by awerebea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <iostream>
+#include "Sorcerer.hpp"
+#include "Victim.hpp"
+#include "Peon.hpp"
+
+int main(void)
+{
+	Sorcerer robert("Robert", "the Magnificent");
+
+	Victim jim("Jimmy");
+	Peon joe("Joe");
+
+	std::cout << "-----------------------------------------------" << std::endl;
+
+	std::cout << robert << jim << joe;
+
+	std::cout << "-----------------------------------------------" << std::endl;
+
+	robert.polymorph(jim);
+	jim.getPolymorphed();
+	robert.polymorph(joe);
+	joe.getPolymorphed();
+	robert.polymorph(static_cast<Victim>(joe));
+
+	std::cout << "-----------------------------------------------" << std::endl;
+
+	Sorcerer foo(robert);
+
+	Victim bar(jim);
+	Peon baz(joe);
+
+	std::cout << foo << bar << baz;
+
+	bar = jim;
+	foo.polymorph(bar);
+	bar.getPolymorphed();
+	foo = robert;
+	baz = joe;
+	foo.polymorph(baz);
+	baz.getPolymorphed();
+
+	std::cout << "-----------------------------------------------" << std::endl;
+
+	return (0);
+}

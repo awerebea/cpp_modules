@@ -1,0 +1,60 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/25 01:05:34 by awerebea          #+#    #+#             */
+/*   Updated: 2020/11/26 15:40:19 by awerebea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "MateriaSource.hpp"
+#include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+
+int main()
+{
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+
+	Character* me = new Character("me");
+	Character* bob = new Character("bob");
+
+	AMateria* tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+
+	std::cout << std::endl << "--- Use char ---" << std::endl;
+
+	me->use(0, *bob);
+	me->use(1, *bob);
+	me->use(2, *bob);
+
+	std::cout << std::endl << "--- Copy char ---" << std::endl;
+	Character* me_copy = new Character(*me);
+
+	std::cout << std::endl << "--- Use copy of char ---" << std::endl;
+	tmp = src->createMateria("ice");
+	me_copy->equip(tmp);
+	me_copy->use(0, *me);
+	me_copy->use(1, *me);
+	me_copy->use(2, *me);
+
+	std::cout << std::endl << "--- Use char again ---" << std::endl;
+	me->unequip(0);
+	me->use(0, *bob);
+	me->use(1, *bob);
+	me->use(2, *bob);
+
+	delete bob;
+	delete src;
+	delete me;
+	delete me_copy;
+
+	return 0;
+}
