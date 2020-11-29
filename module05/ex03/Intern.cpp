@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 15:37:05 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/29 18:07:04 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/29 21:40:58 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,36 +32,25 @@ char const *			Intern::UnknownFormException::what() const throw()
 	return ("Error: unknown form.\n");
 }
 
-Form *					makeShrubberyCreationForm(std::string const &target)
-{
-	return (new ShrubberyCreationForm(target));
-}
-
-Form *					makeRobotomyRequestForm(std::string const &target)
-{
-	return (new RobotomyRequestForm(target));
-}
-
-Form *					makePresidentialPardonForm(std::string const &target)
-{
-	return (new PresidentialPardonForm(target));
-}
-
 Form *					Intern::makeForm(std::string const &formName,
 										std::string const &target) const
 {
-	static struct forms	knownForms[3] {
-		{ "shrubbery creation", makeShrubberyCreationForm },
-		{ "robotomy request", makeRobotomyRequestForm },
-		{ "presidential pardon", makePresidentialPardonForm }
+	Form *				knownForms[3] {
+		new ShrubberyCreationForm(target),
+		new RobotomyRequestForm(target),
+		new PresidentialPardonForm(target)
 	};
-
 	for (int i = 0; i < 3; ++i)
 	{
-		if (formName == knownForms[i].name)
+		if (formName == knownForms[i]->getName())
 		{
 			std::cout << "Intern creates " << formName << "." << std::endl;
-			return (knownForms[i].formMaker(target));
+			for (int j = 0; j < 3; ++j)
+			{
+				if (j != i)
+					delete knownForms[j];
+			}
+			return (knownForms[i]);
 		}
 	}
 	throw (UnknownFormException());

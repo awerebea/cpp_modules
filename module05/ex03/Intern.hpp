@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 15:32:28 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/29 18:06:26 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/11/29 21:29:47 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,6 @@ public:
 	{
 		char const *		what() const throw();
 	};
-};
-
-struct forms
-{
-	std::string			name;
-	Form *				(*formMaker)(std::string const &);
 };
 
 #endif
