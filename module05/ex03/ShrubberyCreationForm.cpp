@@ -6,14 +6,16 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 15:41:05 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/29 14:46:50 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/12/01 13:53:33 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
+std::string ShrubberyCreationForm::_name = "shrubbery creation";
+
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) :
-	Form("shrubbery creation", 145, 137), _target(target) {}
+	Form(ShrubberyCreationForm::_name, 145, 137), _target(target) {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
@@ -112,4 +114,9 @@ void		ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		}
 	}
 	targetFile.close();
+}
+
+std::string const &	ShrubberyCreationForm::getName()
+{
+	return (_name);
 }

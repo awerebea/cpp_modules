@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 15:32:28 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/29 21:29:47 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/12/01 13:49:06 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 
 class						Intern
 {
+	static Form *			makeShrubberyCreationForm(std::string const &);
+	static Form *			makeRobotomyRequestForm(std::string const &);
+	static Form *			makePresidentialPardonForm(std::string const &);
 public:
 							Intern();
 							Intern(Intern const &a);

@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 14:09:54 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/28 22:18:03 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/12/01 13:53:10 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class					ShrubberyCreationForm : public Form
 {
 						ShrubberyCreationForm();
+	static std::string	_name;
 	std::string			_target;
 public:
 						ShrubberyCreationForm(std::string const &);
@@ -26,8 +27,9 @@ public:
 	ShrubberyCreationForm &	operator=(ShrubberyCreationForm const &);
 	virtual				~ShrubberyCreationForm();
 
-	std::string			getTarget() const;
-	virtual void		execute(Bureaucrat const & executor) const;
+	std::string					getTarget() const;
+	static std::string const &	getName();
+	virtual void				execute(Bureaucrat const & executor) const;
 
 	class				TargetFileOpenWriteException : public std::exception
 	{
