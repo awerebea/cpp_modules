@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 22:05:19 by awerebea          #+#    #+#             */
-/*   Updated: 2020/12/04 10:23:14 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/12/04 18:20:54 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ struct Data
 
 void *		serialize(void)
 {
-	char *						raw = new char[20];
-	static std::string const	symbols =	"abcdefghijklmnopqrstuvwxyz" \
-											"ABCDEFGHIJKLMNOPQRSTUVWXYZ" \
-											"0123456789";
+	char *				raw		=	new char[20];	// s1 (8) + int (4) + s2 (8)
+	std::string const	symbols	=	"abcdefghijklmnopqrstuvwxyz" \
+									"ABCDEFGHIJKLMNOPQRSTUVWXYZ" \
+									"0123456789";
 	for (int i = 0; i < 8; ++i)
-		raw[i] = symbols[rand() % 62];
+		raw[i] = symbols[rand() % 62];	// count of symbols is 62
 	*reinterpret_cast<int*>(raw + 8) = rand() % 2000001 - 1000000;
 	for (int i = 0; i < 8; ++i)
-		raw[i + sizeof(char) * 12] = symbols[rand() % 62];
+		raw[i + 12] = symbols[rand() % 62];
 	return (raw);
 }
 
