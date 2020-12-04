@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 23:08:58 by awerebea          #+#    #+#             */
-/*   Updated: 2020/11/04 11:50:05 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/12/04 17:15:12 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int				main(void)
 {
 	Phonebook	book;
-	
+
 	book.prompt();
 	return (0);
 }
