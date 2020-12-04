@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 15:19:08 by awerebea          #+#    #+#             */
-/*   Updated: 2020/12/01 18:49:24 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/12/05 13:03:06 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,8 +217,8 @@ std::ostream &	operator<<(std::ostream &out, Conv const & a)
 {
 	const int *		flags = a.getFlags();
 
-	if (!(a.getFloat() - static_cast<int>(a.getFloat())))
-		out << std::setprecision(1) << std::fixed;
+	std::cout.precision(1);
+	out << std::setiosflags(std::ios::fixed);
 	out << "char: ";
 	if (flags[0])
 		out << (flags[0] < 5 ? "impossible" : "Non displayable");
