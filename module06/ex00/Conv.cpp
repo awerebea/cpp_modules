@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 15:19:08 by awerebea          #+#    #+#             */
-/*   Updated: 2020/12/05 13:03:06 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/12/05 19:12:29 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int				checkStr(std::string const & s, int len)
 			dotFlag = 1;
 		}
 		else if (i && !std::isdigit(s[i]) && !(i == len - 1 && s[i] == 'f' && \
-					std::isdigit(s[i - 1])))
+					std::isdigit(s[i - 1]) && dotFlag))
 			return (0);
 	}
 	if (!dotFlag)
@@ -99,24 +99,25 @@ int				checkStr(std::string const & s, int len)
 	return (s[len - 1] == 'f' ? 2 : 3);
 }
 
-int				checkOverflow(long long num, int * _flags)
-{
-	if (num < std::numeric_limits<int>::min() || \
-			num > std::numeric_limits<int>::max())
-	{
-		for (int i = 0; i < 4; i++) { _flags[i] = 1; }
-		return (1);
-	}
-	return (0);
-}
-
 int				checkOverflow(long double num, int * _flags, int type)
 {
-	if (type == 2 ? \
-		(std::fabs(num) < std::fabs(std::numeric_limits<float>::min()) || \
-		std::fabs(num) > std::fabs(std::numeric_limits<float>::max())) : \
-		(std::fabs(num) < std::fabs(std::numeric_limits<double>::min()) || \
-		std::fabs(num) > std::fabs(std::numeric_limits<double>::max())))
+	if (type == 1 && \
+		((num < std::numeric_limits<int>::min() || \
+		num > std::numeric_limits<int>::max())))
+		{
+			for (int i = 0; i < 4; i++) { _flags[i] = 1; }
+			return (1);
+		}
+	else if (type == 2 && \
+		((std::fabs(num) < std::fabs(std::numeric_limits<float>::min()) || \
+		std::fabs(num) > std::fabs(std::numeric_limits<float>::max()))))
+		{
+			for (int i = 0; i < 4; i++) { _flags[i] = 1; }
+			return (1);
+		}
+	else if (type == 3 && \
+		((std::fabs(num) < std::fabs(std::numeric_limits<double>::min()) || \
+		std::fabs(num) > std::fabs(std::numeric_limits<double>::max()))))
 		{
 			for (int i = 0; i < 4; i++) { _flags[i] = 1; }
 			return (1);
@@ -138,7 +139,7 @@ void			Conv::parser()
 		for (int i = 0; i < 4; i++) _flags[i] = 1;
 		return ;
 	}
-	if (type == 1 && !checkOverflow(std::stoll(_s), _flags))
+	if (type == 1 && !checkOverflow(std::stold(_s), _flags, type))
 	{
 		_i = std::stoi(_s);
 		fromInt();
