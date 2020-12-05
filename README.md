@@ -24,3 +24,6 @@ Repetition and Exceptions
 
 ### Module 06
 C++ casts
+
+### Module 06
+C++ templates
