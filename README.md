@@ -25,5 +25,8 @@ Repetition and Exceptions
 ### Module 06
 C++ casts
 
-### Module 06
+### Module 07
 C++ templates
+
+### Module 08
+Templated containers, iterators, algorithms
